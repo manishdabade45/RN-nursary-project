@@ -20,9 +20,16 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS for frontend
 app.use(cors({
-    origin: '*',
+    origin: [
+        'https://rn-nursary-project.vercel.app', 
+        'http://localhost:5500', 
+        'http://127.0.0.1:5500', 
+        'http://localhost:3000', 
+        'http://localhost:5000'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
 // Parse JSON request bodies
