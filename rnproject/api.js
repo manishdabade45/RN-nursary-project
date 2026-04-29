@@ -3,8 +3,10 @@
  * Handles all communication with the Supabase-powered backend.
  */
 const API = (() => {
-    // Backend base URL — change this if your server runs on a different port
-    const BASE_URL = 'http://localhost:5000/api';
+    // Backend base URL
+    // For local development, use: 'http://localhost:5000/api'
+    // For production (Render), use the deployed URL:
+    const BASE_URL = 'https://rn-nursary-project.onrender.com/api';
 
     // ==========================================
     // TOKEN MANAGEMENT
