@@ -53,10 +53,6 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         
-        if (!email || !password) {
-            return res.status(400).json({ success: false, error: 'Email and password are required.' });
-        }
-        
         const user = await User.findOne({ email });
 
         if (user && (await user.matchPassword(password))) {
@@ -74,7 +70,7 @@ router.post('/login', async (req, res) => {
         }
     } catch (err) {
         console.error('Login error:', err.message);
-        res.status(500).json({ success: false, error: 'Internal server error during login.', details: err.message });
+        res.status(500).json({ success: false, error: 'Internal server error during login.' });
     }
 });
 
